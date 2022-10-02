@@ -9,7 +9,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @Path("/api/v1")
 @RegisterRestClient
-public interface ISimulatorService {
+public interface SimulatorService {
     @POST
     @Path("/data")
     Response callServiceController(SensorData sensorData);

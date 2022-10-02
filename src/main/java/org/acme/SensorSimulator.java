@@ -8,19 +8,20 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 import org.acme.model.SensorData;
-import org.acme.service.ISimulatorService;
+import org.acme.service.DataGenerator;
+import org.acme.service.SimulatorService;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
+
+import io.quarkus.scheduler.Scheduled;
 @RequestScoped
-@Path("/")
 public class SensorSimulator {
     @Inject
     @RestClient
-    ISimulatorService iSimulatorService;
-
-    @GET
-    @Path("test")
+    SimulatorService simulatorService;
+    @Inject
+    DataGenerator dataGenerator;
+    @Scheduled(every = "1s")
     public void generateSensorData() {
-        SensorData sensorData = new SensorData("bari", 0.1 , "foxtrot");
-        iSimulatorService.callServiceController(sensorData);
+        simulatorService.callServiceController(dataGenerator.generateMeasurement());
     }
 }
