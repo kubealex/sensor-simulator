@@ -1,5 +1,6 @@
 package org.acme;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.enterprise.context.RequestScoped;
@@ -13,6 +14,7 @@ import org.acme.service.SimulatorService;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import io.quarkus.scheduler.Scheduled;
+
 @RequestScoped
 public class SensorSimulator {
     @Inject
@@ -20,8 +22,12 @@ public class SensorSimulator {
     SimulatorService simulatorService;
     @Inject
     DataGenerator dataGenerator;
+
     @Scheduled(every = "1s")
     public void generateSensorData() {
-        simulatorService.callServiceController(dataGenerator.generateMeasurement());
+        List<SensorData> sensorList = dataGenerator.generateMeasurement();
+        for (SensorData sensorData : sensorList) {
+            simulatorService.callServiceController(sensorData);
+        }
     }
 }
