@@ -1,12 +1,9 @@
 package org.acme;
 
 import java.util.List;
-import java.util.Random;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
 
 import org.acme.model.SensorData;
 import org.acme.service.DataGenerator;
