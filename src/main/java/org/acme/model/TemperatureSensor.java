@@ -3,7 +3,7 @@ package org.acme.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TemperatureSensor extends SensorData {
-    @JsonProperty("sensor_data")
+    @JsonProperty("sensor_temperature_data")
     private Double temperature;
 
     public TemperatureSensor(String location, Double temperature, String deviceID) {

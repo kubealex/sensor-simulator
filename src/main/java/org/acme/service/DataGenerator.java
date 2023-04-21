@@ -15,13 +15,13 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 //     @ConfigProperty(name = "sensor.devices")
 //     private String[] deviceId;
 
-//     public List<SensorData> generateMeasurement() {
-//         List<SensorData> sensorList = new ArrayList<>();
+//     public List<SensorData> temperatureSampler() {
+//         List<SensorData> temperatureSamples = new ArrayList<>();
 //         for (int index = 0; index < deviceId.length; index++) {
-//             sensorList.add(new SensorData(locations[(int) (Math.random() * locations.length)],
+//             temperatureSamples.add(new SensorData(locations[(int) (Math.random() * locations.length)],
 //                     this.generateRandomNumber(25, 30), deviceId[index]));
 //         }
-//         return sensorList;
+//         return temperatureSamples;
 //         // return new SensorData(locations[(int) (Math.random()*locations.length)],
 //         // this.generateRandomNumber(15, 30), deviceId[(int)
 //         // (Math.random()*deviceId.length)]);
@@ -39,13 +39,13 @@ public class DataGenerator {
     @ConfigProperty(name = "sensor.devices")
     private String[] deviceId;
 
-    public List<TemperatureSensor> generateMeasurement() {
-        List<TemperatureSensor> sensorList = new ArrayList<>();
+    public List<TemperatureSensor> temperatureSampler() {
+        List<TemperatureSensor> temperatureSamples = new ArrayList<>();
         for (int index = 0; index < deviceId.length; index++) {
-            sensorList.add(new TemperatureSensor(locations[(int) (Math.random() * locations.length)],
+            temperatureSamples.add(new TemperatureSensor(locations[(int) (Math.random() * locations.length)],
                     this.generateRandomNumber(25, 30), deviceId[index]));
         }
-        return sensorList;
+        return temperatureSamples;
         // return new SensorData(locations[(int) (Math.random()*locations.length)],
         // this.generateRandomNumber(15, 30), deviceId[(int)
         // (Math.random()*deviceId.length)]);
