@@ -1,9 +1,8 @@
-package org.acme.service.impl;
+package org.acme.service;
 
 import javax.inject.Inject;
 
 import org.acme.model.SensorData;
-import org.acme.service.IDataProducer;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 
@@ -12,21 +11,21 @@ import io.micrometer.core.instrument.MeterRegistry;
 
 import io.smallrye.reactive.messaging.annotations.Broadcast;
 
-public class DataProducerAMQ implements IDataProducer {
+public class DataSenderAMQ {
 
     private Counter sampleCounter;
     private final MeterRegistry sentSamples;
     @Broadcast
     @Inject
     @Channel("sensor-data-out")
-    Emitter<Object> sensorDataEmitter;
+    Emitter<SensorData> sensorDataEmitter;
 
-    DataProducerAMQ(MeterRegistry sentSamples) {
+    DataSenderAMQ(MeterRegistry sentSamples) {
         this.sentSamples = sentSamples;
         sampleCounter = this.sentSamples.counter("amq.samples.sent");
     }
 
-    public void sendData(Object data) {
+    public void sendData(SensorData data) {
         sampleCounter.increment();
         sensorDataEmitter.send(data);
     }
