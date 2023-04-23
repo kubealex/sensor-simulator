@@ -25,7 +25,8 @@ public class SensorSimulator {
     @Inject
     DataSenderAMQ dataSenderAMQ;
 
-    SensorData sensorData = new SensorData(null, null, null, null, null, null, null,null);
+    SensorData sensorData = new SensorData(null, null, null, null, null, null, null, null);
+
     @Scheduled(every = "5s")
     public void generateData() {
         sensorData = dataGenerator.generateSample();
@@ -33,18 +34,17 @@ public class SensorSimulator {
         Log.info("Received sensor data from device");
         dataSenderAMQ.sendData(sensorData);
         Log.info(Json.encode(sensorData));
-        }
     }
+}
 
-    // @Scheduled(every = "5s")
-    // public void generateHumidityData() {
-    //     List<HumiditySample> humiditySamples = dataGenerator.humiditySampler();
-    //     for (HumiditySample humidityData : humiditySamples) {
-    //         simulatorService.showData(humidityData);
-    //         Log.info("Received sensor data from device");
-    //         dataSenderAMQ.sendData(humidityData);
-    //         Log.info(Json.encode(humidityData));
-    //         // simulatorServiceRest.callServiceController(temperatureData);
-    //     }
-    // }
-
+// @Scheduled(every = "5s")
+// public void generateHumidityData() {
+// List<HumiditySample> humiditySamples = dataGenerator.humiditySampler();
+// for (HumiditySample humidityData : humiditySamples) {
+// simulatorService.showData(humidityData);
+// Log.info("Received sensor data from device");
+// dataSenderAMQ.sendData(humidityData);
+// Log.info(Json.encode(humidityData));
+// // simulatorServiceRest.callServiceController(temperatureData);
+// }
+// }
