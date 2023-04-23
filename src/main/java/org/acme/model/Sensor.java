@@ -1,15 +1,18 @@
 package org.acme.model;
 
-import io.quarkus.runtime.annotations.StaticInitSafe;
+import java.util.Optional;
+
 import io.smallrye.config.ConfigMapping;
 
-@StaticInitSafe
 @ConfigMapping(prefix = "sensor")
 public interface Sensor {
     String deviceId();
     String location();
-    Integer minTemp();
-    Integer maxTemp();
-    Integer minHum();
-    Integer maxHum();
+    Optional<Integer> minTemp();
+    Optional<Integer> maxTemp();
+    Optional<Integer> minHum();
+    Optional<Integer> maxHum();
+    Optional<Boolean> ecoMode();
+    Optional<Integer> fanSpeed();
+    Optional<Double> temperature();
 }
