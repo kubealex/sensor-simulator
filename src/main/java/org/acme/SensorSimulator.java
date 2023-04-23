@@ -25,7 +25,7 @@ public class SensorSimulator {
     @Inject
     DataSenderAMQ dataSenderAMQ;
 
-    SensorData sensorData = new SensorData(null, null, null, null, null, null);
+    SensorData sensorData = new SensorData(null, null, null, null, null, null, null);
     @Scheduled(every = "5s")
     public void generateData() {
         sensorData = dataGenerator.generateSample();

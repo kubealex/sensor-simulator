@@ -8,6 +8,7 @@ public class SensorDataBuilder {
     String deviceId = "";
     Boolean ecoMode = false;
     Integer fanSpeed = 0;
+    Integer fixedTemperature = 0;
 
     public SensorDataBuilder setLocation(String location) {
         this.location = location;
@@ -33,7 +34,11 @@ public class SensorDataBuilder {
         this.fanSpeed = fanSpeed;
         return this;
     }
+    public SensorDataBuilder setFixedTemperature(Integer fixedTemperature) {
+        this.fixedTemperature = fixedTemperature;
+        return this;
+    }
     public SensorData build() {
-        return new SensorData(location, humidity, temperature, deviceId, ecoMode, fanSpeed);
+        return new SensorData(location, humidity, temperature, deviceId, ecoMode, fanSpeed, fixedTemperature);
     }
 }

@@ -15,4 +15,5 @@ public interface Sensor {
     Optional<Boolean> ecoMode();
     Optional<Integer> fanSpeed();
     Optional<Double> temperature();
+    Optional<Integer> fixedTemperature();
 }

@@ -17,16 +17,19 @@ public class SensorData {
     protected Boolean ecoMode;
     @JsonProperty("sensor_fan_speed")
     protected Integer fanSpeed;
+    @JsonProperty("sensor_fixed_temperature")
+    protected Integer fixedTemperature;
     @JsonProperty("sensor_timestamp")
     protected Instant timestamp;
 
-    public SensorData(String location, Double humidity, Double temperature, String deviceID, Boolean ecoMode, Integer fanSpeed) {
+    public SensorData(String location, Double humidity, Double temperature, String deviceID, Boolean ecoMode, Integer fanSpeed, Integer fixedTemperature) {
         this.location = location;
         this.humidity = humidity;
         this.deviceID = deviceID;
         this.temperature = temperature;
         this.fanSpeed = fanSpeed;
         this.ecoMode = ecoMode;
+        this.fixedTemperature = fixedTemperature;
         this.timestamp = Instant.now();
     }
 }
