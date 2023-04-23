@@ -17,7 +17,7 @@ public class DataGenerator {
         return new SensorDataBuilder()
         .setDeviceId(sensor.deviceId())
         .setLocation(sensor.location())
-        .setHumidity(generateRandomNumber(sensor.minHum().orElse(0), sensor.maxHum().orElse(0), sensor.temperature().orElse(0.0)))
+        .setHumidity(generateRandomNumber(sensor.minHum().orElse(0), sensor.maxHum().orElse(0), 0.0))
         .setTemperature(generateRandomNumber(sensor.minTemp().orElse(0), sensor.maxTemp().orElse(0), sensor.temperature().orElse(0.0)))
         .setEcoMode(sensor.ecoMode().orElse(false))
         .setFanSpeed(sensor.fanSpeed().orElse(0))
