@@ -37,14 +37,3 @@ public class SensorSimulator {
     }
 }
 
-// @Scheduled(every = "5s")
-// public void generateHumidityData() {
-// List<HumiditySample> humiditySamples = dataGenerator.humiditySampler();
-// for (HumiditySample humidityData : humiditySamples) {
-// simulatorService.showData(humidityData);
-// Log.info("Received sensor data from device");
-// dataSenderAMQ.sendData(humidityData);
-// Log.info(Json.encode(humidityData));
-// // simulatorServiceRest.callServiceController(temperatureData);
-// }
-// }
