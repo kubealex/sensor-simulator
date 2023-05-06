@@ -1,6 +1,6 @@
 package org.acme.service;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import io.vertx.core.json.Json;
 
