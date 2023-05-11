@@ -25,11 +25,9 @@ public class SensorSimulator {
     @Inject
     DataSenderMQTT dataSenderMQTT;
 
-    SensorData sensorData = new SensorData(null, null, null, null, null, null, null, null);
-
     @Scheduled(every = "5s")
     public void generateData() {
-        sensorData = dataGenerator.generateSample();
+        SensorData sensorData = dataGenerator.generateSample();
         simulatorService.showData(sensorData);
         Log.info("Received sensor data from device");
         dataSenderMQTT.sendData(sensorData);
