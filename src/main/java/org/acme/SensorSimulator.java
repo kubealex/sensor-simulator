@@ -5,7 +5,7 @@ import jakarta.inject.Inject;
 
 import org.acme.model.SensorData;
 import org.acme.service.DataGenerator;
-import org.acme.service.DataSenderAMQ;
+import org.acme.service.DataSenderMQTT;
 import org.acme.service.SimulatorService;
 // import org.eclipse.microprofile.rest.client.inject.RestClient;
 
@@ -23,7 +23,7 @@ public class SensorSimulator {
     @Inject
     DataGenerator dataGenerator;
     @Inject
-    DataSenderAMQ dataSenderAMQ;
+    DataSenderMQTT dataSenderMQTT;
 
     SensorData sensorData = new SensorData(null, null, null, null, null, null, null, null);
 
@@ -32,7 +32,7 @@ public class SensorSimulator {
         sensorData = dataGenerator.generateSample();
         simulatorService.showData(sensorData);
         Log.info("Received sensor data from device");
-        dataSenderAMQ.sendData(sensorData);
+        dataSenderMQTT.sendData(sensorData);
         Log.info(Json.encode(sensorData));
     }
 }

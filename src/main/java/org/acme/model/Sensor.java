@@ -9,7 +9,6 @@ public interface Sensor {
     String deviceId();
     String location();
     Optional<Integer> humidity();
-    Optional<Integer> temperature();
     // Optional<Integer> minTemp();
     // Optional<Integer> maxTemp();
     // Optional<Integer> minHum();

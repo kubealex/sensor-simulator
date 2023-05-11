@@ -11,7 +11,7 @@ import io.micrometer.core.instrument.MeterRegistry;
 
 import io.smallrye.reactive.messaging.annotations.Broadcast;
 
-public class DataSenderAMQ {
+public class DataSenderMQTT {
 
     private Counter sampleCounter;
     private final MeterRegistry sentSamples;
@@ -20,7 +20,7 @@ public class DataSenderAMQ {
     @Channel("sensor-data-out")
     Emitter<SensorData> sensorDataEmitter;
 
-    DataSenderAMQ(MeterRegistry sentSamples) {
+    DataSenderMQTT(MeterRegistry sentSamples) {
         this.sentSamples = sentSamples;
         sampleCounter = this.sentSamples.counter("amq.samples.sent");
     }
