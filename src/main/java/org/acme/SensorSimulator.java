@@ -7,7 +7,6 @@ import org.acme.model.SensorData;
 import org.acme.service.DataGenerator;
 import org.acme.service.DataSenderMQTT;
 import org.acme.service.SimulatorService;
-// import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import io.quarkus.logging.Log;
 import io.quarkus.scheduler.Scheduled;
@@ -15,9 +14,6 @@ import io.vertx.core.json.Json;
 
 @RequestScoped
 public class SensorSimulator {
-    // @Inject
-    // @RestClient
-    // SimulatorServiceRest simulatorServiceRest;
     @Inject
     SimulatorService simulatorService;
     @Inject
