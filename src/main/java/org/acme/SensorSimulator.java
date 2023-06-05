@@ -30,4 +30,3 @@ public class SensorSimulator {
         Log.info(Json.encode(sensorData));
     }
 }
-
